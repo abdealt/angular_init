@@ -16,9 +16,17 @@ export class ListPostsComponent {
   public listPosts : Post[] = [];
   public postsService = inject(PostService);
 
+  public temp_list_posts : Post[] =[];
+
+
+  public filter_list_posts = (filter_value:string) => {
+    this.temp_list_posts = this.listPosts.filter(l => l.title.includes(filter_value))
+  }
+
   constructor(){
     this.postsService.getPosts().then((posts : Post[]) =>{
       this.listPosts = posts;
+      this.temp_list_posts = posts;
     });
   }
 }
