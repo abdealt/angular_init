@@ -8,7 +8,7 @@ import { PostService } from '../../services/posts/posts.service';
 @Component({
   selector: 'app-detail-posts',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './detail-posts.component.html',
   styleUrl: './detail-posts.component.css'
 })

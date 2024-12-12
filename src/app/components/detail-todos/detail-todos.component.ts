@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { TodosService } from '../../services/todos/todos.service';
 import { Todo } from '../../interfaces/todo';
 
 @Component({
   selector: 'app-detail-todos',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './detail-todos.component.html',
   styleUrl: './detail-todos.component.css'
 })
