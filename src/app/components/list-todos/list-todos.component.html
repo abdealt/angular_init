@@ -1,0 +1,11 @@
+<h2>List todos</h2>
+
+<article *ngFor="let todo of listTodos">
+    <a [routerLink]="[todo.id+'/show']">
+        <span *ngIf="todo.completed">
+            <s>{{todo.title}}</s>
+        </span>
+        <span *ngIf="!todo.completed">{{todo.title}}</span>
+      </a>
+
+</article>
