@@ -1,3 +1,33 @@
-<h3>{{post?.title}}</h3>
+<h3>{{ post?.title }}</h3>
 <p>{{ post?.body }}</p>
-<a [routerLink]="['/']">Retour</a>
+
+<button class="button" (click)="toggleEditMode()">Modifier le Poste</button>
+
+<div *ngIf="editMode && post" class="edit-form">
+  <form (ngSubmit)="updatePost()">
+    <label for="title">Title</label>
+    <input
+      id="title"
+      [(ngModel)]="post.title"
+      name="title"
+      required
+      placeholder="Enter title"
+    />
+
+    <label for="body">Body</label>
+    <textarea
+      id="body"
+      [(ngModel)]="post.body"
+      name="body"
+      required
+      placeholder="Enter body"
+    ></textarea>
+
+    <button type="submit" class="button">Sauvegarder</button>
+    <button type="button" class="button secondary" (click)="toggleEditMode()">Annuler</button>
+  </form>
+</div>
+
+&nbsp;
+
+<button [routerLink]="'/'" class="button">Retour</button>

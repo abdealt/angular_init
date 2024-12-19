@@ -1,10 +1,15 @@
 <h2>List Post</h2>
 <input type="text" name="text" placeholder="Search" #filter (keyup)="filter_list_posts(filter.value)"/>
 
-  <article *ngFor="let post of temp_list_posts">
+<article *ngFor="let post of temp_list_posts">
 
-    <a [routerLink]="['posts/'+post.id+'/show']">
-      {{ post.title }}
+  <a [routerLink]="['posts/' + post.id + '/show']">
+    {{ post.title }}
   </a>
-</article>
 
+  &nbsp;
+
+  <button (click)="deletePost(post)">Supprimer</button>
+
+
+</article>

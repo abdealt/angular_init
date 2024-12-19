@@ -29,4 +29,9 @@ export class ListPostsComponent {
       this.temp_list_posts = posts;
     });
   }
+
+  public deletePost(post: Post): void {
+    this.listPosts = this.listPosts.filter(p => p.id !== post.id); // a la liste des post on filter le post.id qui est passé en argument
+    this.temp_list_posts = [...this.listPosts]; // Force la mise à jour
+  }
 }

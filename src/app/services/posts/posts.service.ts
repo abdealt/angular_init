@@ -26,4 +26,15 @@ export class PostService {
     let res = await fetch('https://jsonplaceholder.typicode.com/posts/'+id)
     return (await res.json()) ?? null;
   }
+
+
+  public updatePost = async (id: number, updatedPost: Post): Promise<Post | null> => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedPost),
+    });
+
+    return (await res.json()) ?? null;
+  }
 }
